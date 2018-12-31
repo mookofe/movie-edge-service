@@ -28,3 +28,7 @@ services:
     App\Service\MovieServiceProxy:
         arguments:
             $baseUrl: '%env(MOVIE_SERVICE_URL)%'
+
+    App\Service\MetadataServiceProxy:
+        arguments:
+            $baseUrl: '%env(METADATA_SERVICE_URL)%'

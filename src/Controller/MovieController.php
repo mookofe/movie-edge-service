@@ -4,7 +4,7 @@ declare(strict_types = 1);
 namespace App\Controller;
 
 use App\Service\MovieServiceProxy;
-use Psr\Http\Message\ResponseInterface;
+use App\Behavior\ResponseParserTrait;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use FOS\RestBundle\Controller\FOSRestController;
@@ -17,6 +17,8 @@ use FOS\RestBundle\Controller\Annotations as Rest;
  */
 class MovieController extends FOSRestController
 {
+    use ResponseParserTrait;
+
     /**
      * @var MovieServiceProxy
      */
@@ -97,18 +99,5 @@ class MovieController extends FOSRestController
         $this->movieServiceProxy->delete($id);
 
         return new Response();
-    }
-
-    /**
-     * Parse guzzle response to http response
-     *
-     * @param ResponseInterface $response
-     * @return Response
-     */
-    private function parseToResponse(ResponseInterface $response): Response
-    {
-        $json = (string) $response->getBody();
-
-        return new Response($json);
     }
 }
