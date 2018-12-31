@@ -15,21 +15,26 @@ trait RequestMockTrait
     /**
      * Get mocked Request
      *
+     * @param  array $body
      * @return Request
      */
-    private function getRequest(): Request
+    private function getRequest(array $body = []): Request
     {
+        $requestBody = $this->createMock(ParameterBag::class);
+        $requestBody->method('all')
+            ->willReturn($body);
+
         $queryString = [
             'title' => 'The Terminator'
         ];
 
         $query = $this->createMock(ParameterBag::class);
-        $query->expects($this->once())
-            ->method('all')
+        $query->method('all')
             ->willReturn($queryString);
 
         $request = $this->createMock(Request::class);
         $request->query = $query;
+        $request->request = $requestBody;
 
         return $request;
     }

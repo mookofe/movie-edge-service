@@ -13,8 +13,21 @@ use Psr\Http\Message\ResponseInterface;
 trait RestClientMockTrait
 {
     /**
+     * List of allowed methods
+     *
+     * @var string[]
+     */
+    private $allowedMethods = [
+        'get',
+        'post',
+        'put',
+        'delete'
+    ];
+
+    /**
      * Get mocked guzzle client
      *
+     * @param  ResponseInterface $response
      * @return Client
      */
     private function getRestClient(ResponseInterface $response = null): Client
@@ -27,7 +40,7 @@ trait RestClientMockTrait
         $client->expects($this->once())
             ->method('__call')
             ->willReturnCallback(function(string $methodName, array $arguments) use  ($response){
-                if ($methodName === 'get'){
+                if (in_array($methodName, $this->allowedMethods)){
                     return $response;
                 }
             });
