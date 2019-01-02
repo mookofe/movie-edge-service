@@ -26,7 +26,7 @@ $ cd movie-edge-service
 $ composer install
 ```
 
-Setup environment varialbles:
+Setup environment variables:
 
 ```batch
 $ cp .env.dist .env
