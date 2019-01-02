@@ -23,6 +23,6 @@ trait ResponseParserTrait
     {
         $json = (string) $response->getBody();
 
-        return new Response($json);
+        return new Response($json, $response->getStatusCode());
     }
 }

@@ -96,8 +96,8 @@ class MovieController extends FOSRestController
      */
     public function delete(int $id): Response
     {
-        $this->movieServiceProxy->delete($id);
+        $response = $this->movieServiceProxy->delete($id);
 
-        return new Response();
+        return $this->parseToResponse($response);
     }
 }

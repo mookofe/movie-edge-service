@@ -24,6 +24,8 @@ services:
         tags: ['controller.service_arguments']
 
     GuzzleHttp\Client:
+        arguments:
+            $config: {'http_errors': false}
 
     App\Service\MovieServiceProxy:
         arguments:
