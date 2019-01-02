@@ -37,19 +37,6 @@ class MetadataServiceProxy
     }
 
     /**
-     * Get movie metadata by IMDB Id
-     *
-     * @param string $imdbId
-     * @return ResponseInterface
-     */
-    public function getByImdbId(string $imdbId): ResponseInterface
-    {
-        $url = sprintf('%s/movie-meta/%s', $this->baseUrl, $imdbId);
-
-        return $this->restClient->get($url);
-    }
-
-    /**
      * Search metadata
      *
      * @param Request $request

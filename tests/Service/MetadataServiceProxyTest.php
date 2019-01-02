@@ -20,20 +20,6 @@ class MetadataServiceProxyTest extends TestCase
     use RestClientMockTrait;
 
     /**
-     * Test getByImdbId method
-     */
-    public function testGetByImdbId(): void
-    {
-        $client = $this->getRestClient();
-        $baseUrl = 'http://localhost/api/';
-
-        $service = new MetadataServiceProxy($client, $baseUrl);
-        $response = $service->getByImdbId('tt234343');
-
-        $this->assertInstanceOf(ResponseInterface::class, $response);
-    }
-
-    /**
      * Test search method
      */
     public function testSearch(): void

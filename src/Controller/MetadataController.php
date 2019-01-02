@@ -34,21 +34,6 @@ class MetadataController extends FOSRestController
     }
 
     /**
-     * Get movie metadata by IMDB Id
-     *
-     * @Rest\Get("/movie-meta/{imdbId}")
-     *
-     * @param string $imdbId
-     * @return Response
-     */
-    public function index(string $imdbId): Response
-    {
-        $meta = $this->metadataProxy->getByImdbId($imdbId);
-
-        return $this->parseToResponse($meta);
-    }
-
-    /**
      * Get movie metadata by title
      *
      * @Rest\Get("/movie-meta-search")
