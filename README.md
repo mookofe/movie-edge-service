@@ -4,7 +4,7 @@ Public facing service that proxy requests from external users to multiple Micros
 
 - [Stack](#stack)
 - [Installation](#installation)
-- [Running](#running)
+- [Usage](#usage)
 
 ## Stack
 
@@ -38,7 +38,7 @@ Run tests:
 $ bin/phpunit
 ```
 
-## Basic Usage:
+## Usage:
 Run the application using the following command:
 
 ```batch
