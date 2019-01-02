@@ -42,7 +42,7 @@ $ bin/phpunit
 Run the application using the following command:
 
 ```batch
-$ php -S localhost: 8001 -t public
+$ php -S localhost:8001 -t public
 ```
 
 Finally open your browser using the url: `http://localhost:8001/api`
